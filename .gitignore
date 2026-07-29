@@ -1,0 +1,38 @@
+# Private data: voice biometrics, generated audio, contacts, settings.
+# Nothing under these ever belongs in a public repository.
+data/
+voice_phone/
+csv/
+
+# Model weights and caches (tens of GB, downloaded on first run)
+models/
+.cache/
+
+# Virtual environments
+.venv*/
+**/__pycache__/
+
+# Web build artifacts
+node_modules/
+.next/
+*.tsbuildinfo
+
+# Databases and backups
+*.db
+*.db.bak*
+
+# Production material for the marketing site and films (not the product)
+videos/
+website/
+
+# Your own page branding, if you add it (see playerpage._load_brand)
+server/app/assets/brand/custom/
+
+# Working files
+brand/*.ai
+.~lock.*#
+.claude/
+
+# Private planning and machine-specific eval script
+PLAN.md
+server/eval_qwen.py

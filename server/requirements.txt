@@ -1,0 +1,8 @@
+# torch 2.6.0+cu124 / torchaudio 2.6.0 installed separately from
+# https://download.pytorch.org/whl/cu124 (see start.ps1 / PLAN.md)
+chatterbox-tts
+faster-whisper
+fastapi
+httpx
+uvicorn[standard]
+python-multipart
