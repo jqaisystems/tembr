@@ -43,6 +43,53 @@ Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
   voice inside it, a reply one tap away. Download the site as a folder and
   host it anywhere.
 
+## The films
+
+Every film below is narrated by a Tembr voice clone, generated on the same
+GPU that built it. They stream on the [product site](https://www.ai.joaoqueiros.com/tembr),
+and the MP4 files are attached to the
+[latest release](https://github.com/jqaisystems/tembr/releases/latest) if you
+want them directly.
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/promo-poster.jpg" alt="The film, 57 seconds"></a><br>
+      <b>The film</b> · 0:57
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/trailer-poster.jpg" alt="Trailer, 26 seconds"></a><br>
+      <b>Trailer</b> · 0:26
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/demo-poster.jpg" alt="Full demo, 2 minutes 14 seconds"></a><br>
+      <b>Full demo</b> · 2:14
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/tutorial-01-poster.jpg" alt="Tutorial 01, record your voice"></a><br>
+      <b>01 · Record your voice</b> · 1:30
+    </td>
+    <td align="center">
+      <a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/tutorial-02-poster.jpg" alt="Tutorial 02, generate speech"></a><br>
+      <b>02 · Generate speech</b> · 1:19
+    </td>
+    <td align="center">
+      <a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/tutorial-03-poster.jpg" alt="Tutorial 03, run an outreach batch"></a><br>
+      <b>03 · Outreach batch</b> · 1:21
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/tutorial-04-poster.jpg" alt="Tutorial 04, build and send voice pages"></a><br>
+      <b>04 · Voice pages</b> · 1:11
+    </td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
 ## How cloning works (and why length matters)
 
 The zero-shot engine conditions its decoder on roughly the **first ten
@@ -101,6 +148,10 @@ to clone.
 
 ## Documentation
 
+- [The case study](https://www.ai.joaoqueiros.com/systems/tembr): the build
+  notes behind the studio, including ranking nine versions of the same voice
+  and the finding that the engine really listens to about ten seconds of
+  your reference.
 - `voice-reference-script.md`: how to record a reference that clones well,
   with the measurements behind every recommendation.
 - The in-app help panels on every screen document the workflow they sit on.

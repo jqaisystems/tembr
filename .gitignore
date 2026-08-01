@@ -36,3 +36,6 @@ brand/*.ai
 # Private planning and machine-specific eval script
 PLAN.md
 server/eval_qwen.py
+
+# Social media launch pack (internal marketing, never for the public repo)
+social/
