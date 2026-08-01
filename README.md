@@ -12,6 +12,8 @@ folder. Nothing about your voice ever touches a cloud.
 
 Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 
+<img src="docs/media/tembr-studio.png" alt="The Tembr studio voice library, showing cloned voices with quality badges and reference recordings">
+
 ## The privacy stance
 
 - Your voice is biometric data. Recording, cloning and rendering all run
@@ -25,23 +27,39 @@ Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 
 ## What it does
 
-- **Record** a reference (about ninety seconds, guided by a script written to
-  cover the language's full range). The studio measures the take and tells
-  you in plain language if your microphone or your room is holding it back,
-  and offers an optional cleanup that never overwrites the original.
-- **Clone** locally. The engine conditions on the strongest ten seconds of
-  your take, found automatically (see "How cloning works" below). Voices get
-  quality badges, favorites, collections, and portable `.voice` export.
-- **Generate** any text in your voice. Takes are named from their own words,
-  starred, filtered by project, and downloads carry readable filenames.
-- **Outreach**: paste or upload a lead list (or raw notes an assistant
-  untangles into rows), write one template with `{name}` and `{business}`
-  variables, and render a personal note per lead. Every note is quality
-  checked automatically: long pauses, repeated words and mangled endings are
-  flagged before anything reaches a lead, with one-click re-render.
-- **Build pages**: a branded player page per lead, their name on it, your
-  voice inside it, a reply one tap away. Download the site as a folder and
-  host it anywhere.
+Five moves, all of them local.
+
+**Record** a reference (about ninety seconds, guided by a script written to
+cover the language's full range). The studio measures the take and tells
+you in plain language if your microphone or your room is holding it back,
+and offers an optional cleanup that never overwrites the original.
+
+<img src="docs/media/tembr-step-1.jpg" alt="The Tembr record screen showing the reference script and a running timer">
+
+**Clone** locally. The engine conditions on the strongest ten seconds of
+your take, found automatically (see "How cloning works" below). Voices get
+quality badges, favorites, collections, and portable `.voice` export.
+
+<img src="docs/media/tembr-step-2.jpg" alt="The Tembr voice library showing cloned voices with quality badges">
+
+**Generate** any text in your voice. Takes are named from their own words,
+starred, filtered by project, and downloads carry readable filenames.
+
+<img src="docs/media/tembr-step-3.jpg" alt="The Tembr generate screen with a typed line and a history of named clips">
+
+**Outreach**: paste or upload a lead list (or raw notes an assistant
+untangles into rows), write one template with `{name}` and `{business}`
+variables, and render a personal note per lead. Every note is quality
+checked automatically: long pauses, repeated words and mangled endings are
+flagged before anything reaches a lead, with one-click re-render.
+
+<img src="docs/media/tembr-step-4.jpg" alt="The Tembr outreach screen with a pasted lead list and a message template">
+
+**Build pages**: a branded player page per lead, their name on it, your
+voice inside it, a reply one tap away. Download the site as a folder and
+host it anywhere.
+
+<img src="docs/media/tembr-step-5.jpg" alt="A finished Tembr lead page with the recipient name, a waveform player and a reply button">
 
 ## The films
 
@@ -103,6 +121,26 @@ is the pool the window is found in, it stays with the voice for playback and
 quality checks, and it becomes training data if you ever fine-tune. Record as
 long as you comfortably can in one consistent sitting.
 
+## Notes from the build
+
+Two more findings that shaped the studio, both paid for by getting it
+wrong first:
+
+- **Meters lose to a human ear.** Nine versions of the same voice were
+  measured, compared and ranked. The winner, chosen by listening, was built
+  from an older and technically worse recording, because it had been made in
+  a quieter room. Every automated gate in the pipeline exists to catch what
+  the ear should not have to: mangled words, debris after the final
+  syllable, energy drifting mid-read.
+- **Never patch audio to fill a gap.** An early narration had its pauses
+  filled with mirrored audio to smooth the timing. It read back as a clear
+  echo of the preceding word, because a mirrored waveform is a perfect
+  palindrome. Takes ship exactly as the model rendered them, trimmed at
+  word boundaries and never spliced.
+
+The full build notes are in
+[the case study](https://www.ai.joaoqueiros.com/systems/tembr).
+
 ## Requirements
 
 - Windows (developed there; the server is plain FastAPI + PyTorch, other
@@ -140,6 +178,9 @@ generation takes a few minutes while the engine loads.
   is the default engine and covers most languages.
 - [Qwen3-TTS](https://github.com/QwenLM) by the Qwen team (Apache 2.0) serves
   European Portuguese, where its accent is truer.
+
+Around them: PyTorch + CUDA, faster-whisper, FastAPI, Next.js, SQLite,
+ffmpeg, and Playwright.
 
 Tembr's own code is MIT licensed (see LICENSE). Voice cloning requires
 consent: the studio asks for it at every voice creation, and the reference
