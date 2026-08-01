@@ -12,7 +12,10 @@ folder. Nothing about your voice ever touches a cloud.
 
 Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 
-<img src="docs/media/tembr-studio.png" alt="The Tembr studio voice library, showing cloned voices with quality badges and reference recordings">
+<a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/tembr-promo.gif" alt="From the Tembr film: a typed line becomes a voice note, and three leads each receive a personal voice note on their phone"></a>
+
+<p align="center"><sub>From the 57 second film, narrated by a Tembr voice clone.
+<a href="https://www.ai.joaoqueiros.com/tembr">Watch it with sound</a>.</sub></p>
 
 ## The privacy stance
 
@@ -28,6 +31,8 @@ Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 ## What it does
 
 Five moves, all of them local.
+
+<img src="docs/media/tembr-studio.png" alt="The Tembr studio voice library, showing cloned voices with quality badges and reference recordings">
 
 **Record** a reference (about ninety seconds, guided by a script written to
 cover the language's full range). The studio measures the take and tells
