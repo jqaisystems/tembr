@@ -8,7 +8,8 @@
 cloning studio for outreach that gets heard. It clones your voice on your own
 GPU, speaks any text with it, renders a personal voice note for every lead on
 a list, and builds each lead a branded player page you can host from any
-folder. Nothing about your voice ever touches a cloud.
+folder. Recording, cloning and speech generation run locally. Exported
+voice clips leave your machine only when you choose to share or host them.
 
 Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 
@@ -20,13 +21,17 @@ Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 ## The privacy stance
 
 - Your voice is biometric data. Recording, cloning and rendering all run
-  locally. There is no telemetry, no account, no upload anywhere.
+  locally. The voice-processing workflow requires no cloud voice account.
+  Publishing exported clips and player pages is a separate action you control.
 - There are **no API keys in this system**. The optional AI drafting feature
   shells out to CLI tools you already have installed and logged in (`codex`,
   `claude`); their auth stays theirs, and only the drafting text leaves the
-  machine. Everything voice stays home.
+  machine. Reference recordings and voice models remain local; generated
+  clips can be exported and shared by you.
 - The player pages Tembr builds are plain static files. Host them on your own
-  server or any static host; the lead needs no account and nothing expires.
+  server or any static host. The recipient needs no Tembr account. Hosted
+  pages and voice clips are available to anyone who can access their URL;
+  access and retention depend on the host you choose.
 
 ## What it does
 
