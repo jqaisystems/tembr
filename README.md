@@ -26,33 +26,22 @@ Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 - Windows (developed there; the server is plain FastAPI + PyTorch, other
   platforms should work with adjusted launch scripts)
 - An NVIDIA GPU with about 12 GB VRAM (developed on an RTX 3060 class card)
-- Python 3.11+, Node 20+, [ffmpeg](https://ffmpeg.org) on PATH
+- Python 3.11 for the documented CUDA/PyTorch environment; a supported Node.js LTS release (22.12+ recommended), and [ffmpeg](https://ffmpeg.org) on PATH
 - Roughly 10 GB of disk for model weights, downloaded on first run
 
 <a id="quickstart"></a>
 
 ## Quick start
 
+Follow the [Windows and GPU setup guide](SETUP.md) for the separate CUDA-enabled PyTorch install, dependency checks and optional Qwen environment.
+
+Once the setup checks pass, run from the repository root:
+
 ```powershell
-# 1. server: two virtual environments (the Qwen engine is isolated on purpose)
-cd server
-python -m venv .venv
-.venv\Scripts\pip install -r requirements.txt
-# optional, for European Portuguese (isolated venv, see server/qwen_worker.py)
-python -m venv .venv-qwen
-.venv-qwen\Scripts\pip install qwen-tts fastapi uvicorn
-
-# 2. web
-cd ..\web
-npm install
-
-# 3. run everything (API on :8100, studio on :3000)
-cd ..
 .\start-studio.ps1
 ```
 
-Model weights download automatically on first use into `models/`. First
-generation takes a few minutes while the engine loads.
+Open `http://localhost:3000`. The API runs at `http://127.0.0.1:8100`. Model weights download on first use into `models/`; first startup and generation can take several minutes. Use the [health checks](SETUP.md#5-check-that-the-studio-is-ready) to distinguish a running API from a ready voice engine.
 
 ## Documentation
 
@@ -60,10 +49,10 @@ generation takes a few minutes while the engine loads.
   notes behind the studio, including ranking nine versions of the same voice
   and the finding that the engine really listens to about ten seconds of
   your reference.
-- `voice-reference-script.md`: how to record a reference that clones well,
+- [Voice reference script](voice-reference-script.md): how to record a reference that clones well,
   with the measurements behind every recommendation.
 - The in-app help panels on every screen document the workflow they sit on.
-- `ROADMAP.md`: where this is going.
+- [Roadmap](ROADMAP.md): where this is going.
 
 ## Support
 
