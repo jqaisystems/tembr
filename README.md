@@ -13,10 +13,61 @@ voice clips leave your machine only when you choose to share or host them.
 
 Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
 
-<a href="https://www.ai.joaoqueiros.com/tembr"><img src="docs/media/tembr-promo.gif" alt="From the Tembr film: a typed line becomes a voice note, and three leads each receive a personal voice note on their phone"></a>
+<a href="https://www.ai.joaoqueiros.com/tembr"><picture><source media="(prefers-reduced-motion: reduce)" srcset="docs/media/promo-poster.jpg"><img src="docs/media/tembr-promo.gif" alt="From the Tembr film: a typed line becomes a voice note, and three leads each receive a personal voice note on their phone"></picture></a>
 
 <p align="center"><sub>From the 57 second film, narrated by a Tembr voice clone.
 <a href="https://www.ai.joaoqueiros.com/tembr">Watch it with sound</a>.</sub></p>
+
+
+[Static film poster](docs/media/promo-poster.jpg) · [Requirements](#requirements) · [Quick start](#quick-start) · [Documentation](#documentation) · [Support](#support)
+
+## Requirements
+
+- Windows (developed there; the server is plain FastAPI + PyTorch, other
+  platforms should work with adjusted launch scripts)
+- An NVIDIA GPU with about 12 GB VRAM (developed on an RTX 3060 class card)
+- Python 3.11+, Node 20+, [ffmpeg](https://ffmpeg.org) on PATH
+- Roughly 10 GB of disk for model weights, downloaded on first run
+
+<a id="quickstart"></a>
+
+## Quick start
+
+```powershell
+# 1. server: two virtual environments (the Qwen engine is isolated on purpose)
+cd server
+python -m venv .venv
+.venv\Scripts\pip install -r requirements.txt
+# optional, for European Portuguese (isolated venv, see server/qwen_worker.py)
+python -m venv .venv-qwen
+.venv-qwen\Scripts\pip install qwen-tts fastapi uvicorn
+
+# 2. web
+cd ..\web
+npm install
+
+# 3. run everything (API on :8100, studio on :3000)
+cd ..
+.\start-studio.ps1
+```
+
+Model weights download automatically on first use into `models/`. First
+generation takes a few minutes while the engine loads.
+
+## Documentation
+
+- [The case study](https://www.ai.joaoqueiros.com/systems/tembr): the build
+  notes behind the studio, including ranking nine versions of the same voice
+  and the finding that the engine really listens to about ten seconds of
+  your reference.
+- `voice-reference-script.md`: how to record a reference that clones well,
+  with the measurements behind every recommendation.
+- The in-app help panels on every screen document the workflow they sit on.
+- `ROADMAP.md`: where this is going.
+
+## Support
+
+Use [GitHub issues](https://github.com/jqaisystems/tembr/issues/new/choose) with your operating system, GPU/VRAM, engine and a redacted error. Reproduce with neutral text; do not upload anyone's voice recordings, models or recipient data.
 
 ## The privacy stance
 
@@ -33,9 +84,12 @@ Product site: [ai.joaoqueiros.com/tembr](https://www.ai.joaoqueiros.com/tembr)
   pages and voice clips are available to anyone who can access their URL;
   access and retention depend on the host you choose.
 
+<details>
+<summary>Studio workflow and screenshots</summary>
+
 ## What it does
 
-Five moves, all of them local.
+Record, clone and generate locally; export clips and player pages when you choose to share them.
 
 <img src="docs/media/tembr-studio.png" alt="The Tembr studio voice library, showing cloned voices with quality badges and reference recordings">
 
@@ -70,6 +124,12 @@ voice inside it, a reply one tap away. Download the site as a folder and
 host it anywhere.
 
 <img src="docs/media/tembr-step-5.jpg" alt="A finished Tembr lead page with the recipient name, a waveform player and a reply button">
+
+
+</details>
+
+<details>
+<summary>Films and video tutorials</summary>
 
 ## The films
 
@@ -118,6 +178,9 @@ want them directly.
   </tr>
 </table>
 
+
+</details>
+
 ## How cloning works (and why length matters)
 
 The zero-shot engine conditions its decoder on roughly the **first ten
@@ -151,37 +214,6 @@ wrong first:
 The full build notes are in
 [the case study](https://www.ai.joaoqueiros.com/systems/tembr).
 
-## Requirements
-
-- Windows (developed there; the server is plain FastAPI + PyTorch, other
-  platforms should work with adjusted launch scripts)
-- An NVIDIA GPU with about 12 GB VRAM (developed on an RTX 3060 class card)
-- Python 3.11+, Node 20+, [ffmpeg](https://ffmpeg.org) on PATH
-- Roughly 10 GB of disk for model weights, downloaded on first run
-
-## Quickstart
-
-```powershell
-# 1. server: two virtual environments (the Qwen engine is isolated on purpose)
-cd server
-python -m venv .venv
-.venv\Scripts\pip install -r requirements.txt
-# optional, for European Portuguese (isolated venv, see server/qwen_worker.py)
-python -m venv .venv-qwen
-.venv-qwen\Scripts\pip install qwen-tts fastapi uvicorn
-
-# 2. web
-cd ..\web
-npm install
-
-# 3. run everything (API on :8100, studio on :3000)
-cd ..
-.\start-studio.ps1
-```
-
-Model weights download automatically on first use into `models/`. First
-generation takes a few minutes while the engine loads.
-
 ## Engines and credits
 
 - [Chatterbox](https://github.com/resemble-ai/chatterbox) by Resemble AI (MIT)
@@ -196,14 +228,3 @@ Tembr's own code is MIT licensed (see LICENSE). Voice cloning requires
 consent: the studio asks for it at every voice creation, and the reference
 script includes a spoken consent line. Clone only voices you have the right
 to clone.
-
-## Documentation
-
-- [The case study](https://www.ai.joaoqueiros.com/systems/tembr): the build
-  notes behind the studio, including ranking nine versions of the same voice
-  and the finding that the engine really listens to about ten seconds of
-  your reference.
-- `voice-reference-script.md`: how to record a reference that clones well,
-  with the measurements behind every recommendation.
-- The in-app help panels on every screen document the workflow they sit on.
-- `ROADMAP.md`: where this is going.
